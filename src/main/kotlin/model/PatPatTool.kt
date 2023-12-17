@@ -21,13 +21,13 @@ import java.awt.Image as AwtImage
 @Suppress("SameParameterValue")
 object PatPatTool {
     @OptIn(ExperimentalCommandDescriptors::class, ConsoleExperimentalApi::class)
-    fun getPat(hippopotomonstrosesquippedaliophobia: User, delay: Int) {
-        val qqId = hippopotomonstrosesquippedaliophobia.id
+    fun getPat(requester: User, delay: Int) {
+        val qqId = requester.id
         // hippopotomonstrosesquippedaliophobia: 长单词恐惧症
 
         if (!tmp.exists()) tmp.mkdir()
         if (tmp.resolve("${qqId}_pat.gif").exists()) return
-        val avatar = URL(hippopotomonstrosesquippedaliophobia.avatarUrl)
+        val avatar = URL(requester.avatarUrl)
         mkImg(avatar, tmp.resolve("${qqId}_pat.gif"), delay)
     }
 
